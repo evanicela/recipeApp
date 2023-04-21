@@ -5,8 +5,13 @@ import android.os.Bundle
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,14 +20,18 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavType
@@ -106,7 +115,7 @@ class MainActivity : ComponentActivity() {
     }
     @Composable
     fun DetailsScreen(id:Long, name:String?, onNavigateUp: () -> Unit){
-        // from our lists of articles we use the id to filter and only show the clicked article 
+        // from our lists of articles we use the id to filter and only show the clicked article
         val article = allArticles.first{ it.id == id }
         Scaffold {
            Column(Modifier.padding(it)) {
@@ -171,17 +180,24 @@ class MainActivity : ComponentActivity() {
     private fun HomeAppBar(onAboutClick: () -> Unit){
          Row(verticalAlignment = Alignment.CenterVertically,
              modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)){
-             Text("Latest Articles", style= MaterialTheme.typography.h6)
+             Text("welcome to our recipe App", style= MaterialTheme.typography.h6)
              Spacer(modifier = Modifier.weight(1f))
              TextButton(onClick = onAboutClick) {
                  Text("About")
+             }
+             val na = LocalUriHandler.current
+             Spacer(modifier = Modifier.weight(1f))
+             TextButton(onClick = {
+                 na.openUri("https://www.youtube.com/watch?v=mJ6C0s_GGj4")
+             } ){
+                 Text("know More")
              }
          }
     }
     @OptIn(ExperimentalMaterialApi::class)
     @Composable
     fun ArticleCard(item: Content, onClick: () -> Unit){
-         Card(git init
+         Card(
              modifier = Modifier
                  .padding(horizontal = 16.dp, vertical = 10.dp)
                  .fillMaxWidth(),
@@ -252,17 +268,5 @@ class MainActivity : ComponentActivity() {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
