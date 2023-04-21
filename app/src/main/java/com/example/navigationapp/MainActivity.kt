@@ -179,14 +179,14 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun HomeAppBar(onAboutClick: () -> Unit){
          Row(verticalAlignment = Alignment.CenterVertically,
-             modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)){
-             Text("welcome to our recipe App", style= MaterialTheme.typography.h6)
-             Spacer(modifier = Modifier.weight(1f))
+             modifier = Modifier.padding(horizontal = 13.dp, vertical = 10.dp)){
+             Text("You're Welcome", style= MaterialTheme.typography.h6)
+             Spacer(modifier = Modifier.weight(0.5f))
              TextButton(onClick = onAboutClick) {
                  Text("About")
              }
              val na = LocalUriHandler.current
-             Spacer(modifier = Modifier.weight(1f))
+             Spacer(modifier = Modifier.weight(0.5f))
              TextButton(onClick = {
                  na.openUri("https://www.youtube.com/watch?v=mJ6C0s_GGj4")
              } ){
