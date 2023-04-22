@@ -180,7 +180,7 @@ class MainActivity : ComponentActivity() {
     private fun HomeAppBar(onAboutClick: () -> Unit){
          Row(verticalAlignment = Alignment.CenterVertically,
              modifier = Modifier.padding(horizontal = 13.dp, vertical = 10.dp)){
-             Text("You're Welcome", style= MaterialTheme.typography.h6)
+             Text("Celestin\\'S App", style= MaterialTheme.typography.h6)
              Spacer(modifier = Modifier.weight(0.5f))
              TextButton(onClick = onAboutClick) {
                  Text("About")

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NavigationApp</string>
+    <string name="app_name">CelestinApp</string>
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
     <string name="bnv">Welcome to this Page!!!</string>
 </resources>
